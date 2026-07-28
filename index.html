@@ -3,70 +3,426 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kisan Astra — Privacy &amp; Support</title>
+    <title>Kisan Astra — Control your farm pump from your phone</title>
     <meta
       name="description"
-      content="Privacy Policy and customer support for Kisan Astra, the smart agricultural pump controller by Fournine Cloud Solutions."
+      content="Kisan Astra is a smart starter and free mobile app that lets farmers monitor and control their three-phase agricultural pump from anywhere — live voltages, remote on/off, schedules and alerts. Available in English, Telugu and Hindi."
     />
-    <link rel="icon" href="icon.png" />
+    <meta property="og:title" content="Kisan Astra — Your pump, in your pocket" />
+    <meta
+      property="og:description"
+      content="Monitor and control your agricultural pump from your phone. Live phase voltages, remote on/off, schedules and instant alerts."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="icon-192.png" />
+    <link rel="icon" href="icon-192.png" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="landing.css" />
+    <script src="i18n.js" defer></script>
+    <script src="landing.js" defer></script>
   </head>
-  <body>
-    <header class="site-header">
-      <div class="site-header__inner">
-        <img
-          class="site-header__logo"
-          src="icon.png"
-          alt="Kisan Astra app icon"
-        />
-        <div>
-          <div class="site-header__title">Kisan Astra</div>
-          <div class="site-header__sub">Smart agricultural pump controller</div>
-        </div>
-      </div>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="support.html">Support</a>
+  <body class="landing">
+    <header class="topbar">
+      <a class="topbar__brand" href="index.html">
+        <img src="icon-192.png" alt="Kisan Astra app icon" width="40" height="40" />
+        <span>
+          <span class="topbar__name">Kisan Astra</span>
+          <span class="topbar__sub" data-i18n="header_sub"
+            >Smart agricultural pump controller</span
+          >
+        </span>
+      </a>
+      <nav class="topbar__nav" aria-label="Main navigation">
+        <a href="#features" data-i18n="nav_features">Features</a>
+        <a href="#how" data-i18n="nav_how">How it works</a>
+        <a href="#faq" data-i18n="nav_faq">Questions</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
       </nav>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-lang="te" aria-pressed="false" lang="te">తెలుగు</button>
+        <button type="button" data-lang="hi" aria-pressed="false" lang="hi">हिन्दी</button>
+      </div>
     </header>
 
     <main>
-      <h1 class="page-title">Help &amp; Privacy</h1>
-      <p class="lead">
-        Kisan Astra lets farmers monitor and control a three-phase agricultural
-        pump from their phone — live phase voltages, power and pump status,
-        running hours, scheduling, and instant alerts. This page links to our
-        Privacy Policy and customer support resources.
-      </p>
+      <!-- ================= Hero ================= -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <p class="eyebrow eyebrow--light" data-i18n="hero_eyebrow">
+              Smart starter + free mobile app
+            </p>
+            <h1 id="hero-heading" class="hero__title">
+              <span data-i18n="hero_t1">Your pump,</span>
+              <span class="hero__title-accent" data-i18n="hero_t2"
+                >in your pocket.</span
+              >
+            </h1>
+            <span class="phase-rule" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+            <p class="hero__sub" data-i18n="hero_sub">
+              Kisan Astra turns your three-phase agricultural pump into a smart
+              motor you can watch and control from your phone — from home, the
+              market, or the next district.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#how" data-i18n="hero_cta_primary"
+                >See how it works</a
+              >
+              <a class="btn btn--ghost" href="#get" data-i18n="hero_cta_secondary"
+                >Get the app</a
+              >
+            </div>
+            <p class="hero__trust" data-i18n="hero_trust">
+              Works fully in English, తెలుగు &amp; हिन्दी
+            </p>
+          </div>
 
-      <div class="card-grid">
-        <a class="card" href="privacy.html">
-          <span class="card__icon" aria-hidden="true">🔒</span>
-          <span class="card__title">Privacy Policy</span>
-          <span class="card__desc"
-            >What we collect, how we use it, how it is protected, and how to
-            delete your account.</span
-          >
-        </a>
-        <a class="card" href="support.html">
-          <span class="card__icon" aria-hidden="true">🛟</span>
-          <span class="card__title">Support &amp; FAQ</span>
-          <span class="card__desc"
-            >Setup help, troubleshooting, and how to reach our support
-            team.</span
-          >
-        </a>
-      </div>
+          <!-- Live telemetry mock — the signature element -->
+          <div class="hero__visual" aria-hidden="true">
+            <div class="phone">
+              <div class="phone__notch"></div>
+              <div class="phone__screen">
+                <div class="tele-row">
+                  <span class="tele-label" data-i18n="mock_power">Power</span>
+                  <span class="tele-pill tele-pill--on">
+                    <span class="tele-dot"></span>
+                    <span data-i18n="mock_on">ON</span>
+                  </span>
+                </div>
+                <p class="tele-caption" data-i18n="mock_phases">Phase voltages</p>
+                <div class="phase-grid">
+                  <div class="phase phase--r">
+                    <span class="phase__tag">R</span>
+                    <span class="phase__value" id="volt-r">233</span>
+                    <span class="phase__unit">V</span>
+                  </div>
+                  <div class="phase phase--y">
+                    <span class="phase__tag">Y</span>
+                    <span class="phase__value" id="volt-y">231</span>
+                    <span class="phase__unit">V</span>
+                  </div>
+                  <div class="phase phase--b">
+                    <span class="phase__tag">B</span>
+                    <span class="phase__value" id="volt-b">234</span>
+                    <span class="phase__unit">V</span>
+                  </div>
+                </div>
+                <div class="tele-motor">
+                  <span class="tele-motor__spinner"></span>
+                  <span data-i18n="mock_pump">Pump running</span>
+                </div>
+                <div class="tele-row tele-row--footer">
+                  <span class="tele-label" data-i18n="mock_today">Today</span>
+                  <span class="tele-time" id="run-time">02:41:05</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section>
-        <h2>Contact</h2>
-        <div class="callout">
-          <p>
-            For any question about the app, your account, or your data, email
-            <a href="mailto:support@fourninelabs.com"
-              >support@fourninelabs.com</a
-            >. We aim to respond within two business days.
+      <!-- ================= What is it ================= -->
+      <section class="section section--product" aria-labelledby="product-heading">
+        <div class="section__inner section__inner--narrow reveal">
+          <p class="eyebrow" data-i18n="product_eyebrow">The product</p>
+          <h2 id="product-heading" data-i18n="product_title">
+            What is Kisan Astra?
+          </h2>
+          <span class="phase-rule" aria-hidden="true"><i></i><i></i><i></i></span>
+          <p class="section__lead" data-i18n="product_body">
+            Kisan Astra is a smart starter that an electrician fits next to your
+            existing pump starter, plus a free mobile app. The unit reads power
+            and voltage on all three phases, switches the motor on and off, and
+            stays connected to your phone over the mobile network.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= How it works ================= -->
+      <section id="how" class="section" aria-labelledby="how-heading">
+        <div class="section__inner">
+          <div class="section__head reveal">
+            <p class="eyebrow" data-i18n="how_eyebrow">Getting started</p>
+            <h2 id="how-heading" data-i18n="how_title">
+              From starter to smartphone in three steps
+            </h2>
+            <span class="phase-rule" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+          </div>
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step__num" aria-hidden="true">1</span>
+              <h3 data-i18n="how1_title">Install the smart starter</h3>
+              <p data-i18n="how1_body">
+                A trained electrician installs the Kisan Astra unit beside your
+                pump's starter panel. Your wiring and motor stay as they are.
+              </p>
+            </li>
+            <li class="step reveal">
+              <span class="step__num" aria-hidden="true">2</span>
+              <h3 data-i18n="how2_title">Scan and pair</h3>
+              <p data-i18n="how2_body">
+                Download the app, sign in with your mobile number and OTP, and
+                scan the QR code on the unit. Your pump appears in the app
+                within minutes.
+              </p>
+            </li>
+            <li class="step reveal">
+              <span class="step__num" aria-hidden="true">3</span>
+              <h3 data-i18n="how3_title">Control from anywhere</h3>
+              <p data-i18n="how3_body">
+                Watch live voltage, switch the motor on or off, set schedules,
+                and get alerts — no more trips to the field just to flip a
+                switch.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= Features ================= -->
+      <section id="features" class="section section--tinted" aria-labelledby="features-heading">
+        <div class="section__inner">
+          <div class="section__head reveal">
+            <p class="eyebrow" data-i18n="features_eyebrow">Features</p>
+            <h2 id="features-heading" data-i18n="features_title">
+              What the app can do
+            </h2>
+            <span class="phase-rule" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+          </div>
+          <div class="feature-grid">
+            <article class="feature reveal">
+              <span class="feature__icon" aria-hidden="true">📡</span>
+              <h3 data-i18n="f1_title">Live monitoring</h3>
+              <p data-i18n="f1_body">
+                See power status, pump status and live R, Y, B phase voltages —
+                refreshed every few seconds straight from the field.
+              </p>
+            </article>
+            <article class="feature reveal">
+              <span class="feature__icon" aria-hidden="true">🔘</span>
+              <h3 data-i18n="f2_title">One-tap motor control</h3>
+              <p data-i18n="f2_body">
+                Start or stop the pump from anywhere with a single tap.
+              </p>
+            </article>
+            <article class="feature reveal">
+              <span class="feature__icon" aria-hidden="true">⏰</span>
+              <h3 data-i18n="f3_title">Smart schedules</h3>
+              <p data-i18n="f3_body">
+                Run the pump at fixed times — every day, selected days, one
+                time, or a seasonal date range. It switches off by itself.
+              </p>
+            </article>
+            <article class="feature reveal">
+              <span class="feature__icon" aria-hidden="true">🔔</span>
+              <h3 data-i18n="f4_title">Instant alerts</h3>
+              <p data-i18n="f4_body">
+                Get a notification the moment power fails or returns, the pump
+                starts or stops, or a phase goes missing.
+              </p>
+            </article>
+            <article class="feature reveal">
+              <span class="feature__icon" aria-hidden="true">📊</span>
+              <h3 data-i18n="f5_title">Usage history</h3>
+              <p data-i18n="f5_body">
+                Daily running hours for the last 7, 15 or 30 days — accurate
+                down to the second.
+              </p>
+            </article>
+            <article class="feature reveal">
+              <span class="feature__icon" aria-hidden="true">🌾</span>
+              <h3 data-i18n="f6_title">Made for the farm</h3>
+              <p data-i18n="f6_body">
+                In English, Telugu and Hindi. Simple screens, dark mode, and
+                multiple pumps in one account.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= Screenshots ================= -->
+      <section class="section" aria-labelledby="screens-heading">
+        <div class="section__inner">
+          <div class="section__head reveal">
+            <p class="eyebrow" data-i18n="screens_eyebrow">Screenshots</p>
+            <h2 id="screens-heading" data-i18n="screens_title">
+              The app, at a glance
+            </h2>
+            <span class="phase-rule" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+          </div>
+          <div class="screens">
+            <figure class="screen reveal">
+              <img
+                src="assets/screens/Home_LiveTelemetry.png"
+                alt="Kisan Astra home screen showing power status, live phase voltages and pump control"
+                width="331"
+                height="720"
+                loading="lazy"
+              />
+              <figcaption data-i18n="screen1_caption">
+                Home — live readings
+              </figcaption>
+            </figure>
+            <figure class="screen reveal">
+              <img
+                src="assets/screens/Scheduler.png"
+                alt="Kisan Astra scheduler screen with recurring pump schedules"
+                width="331"
+                height="720"
+                loading="lazy"
+              />
+              <figcaption data-i18n="screen2_caption">Scheduler</figcaption>
+            </figure>
+            <figure class="screen reveal">
+              <img
+                src="assets/screens/History.png"
+                alt="Kisan Astra history screen charting daily pump running hours"
+                width="331"
+                height="720"
+                loading="lazy"
+              />
+              <figcaption data-i18n="screen3_caption">History</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= Why farmers ================= -->
+      <section class="section section--dark" aria-labelledby="why-heading">
+        <div class="section__inner">
+          <div class="section__head reveal">
+            <p class="eyebrow eyebrow--light" data-i18n="why_eyebrow">
+              Why it matters
+            </p>
+            <h2 id="why-heading" data-i18n="why_title">
+              Why farmers choose Kisan Astra
+            </h2>
+            <span class="phase-rule" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+          </div>
+          <div class="why-grid">
+            <article class="why reveal">
+              <h3 data-i18n="w1_title">No more night trips</h3>
+              <p data-i18n="w1_body">
+                Power comes at odd hours. Start the motor from your bed and see
+                it running — with proof on the screen.
+              </p>
+            </article>
+            <article class="why reveal">
+              <h3 data-i18n="w2_title">Protect your motor</h3>
+              <p data-i18n="w2_body">
+                A missing phase can burn a three-phase motor. Kisan Astra warns
+                you instantly, before the damage is done.
+              </p>
+            </article>
+            <article class="why reveal">
+              <h3 data-i18n="w3_title">Water on time</h3>
+              <p data-i18n="w3_body">
+                Schedules run the pump even when you are busy, asleep, or away —
+                your crop never waits.
+              </p>
+            </article>
+            <article class="why reveal">
+              <h3 data-i18n="w4_title">Know your usage</h3>
+              <p data-i18n="w4_body">
+                Exact daily running hours help you plan electricity use and spot
+                problems early.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FAQ ================= -->
+      <section id="faq" class="section" aria-labelledby="faq-heading">
+        <div class="section__inner section__inner--narrow">
+          <div class="section__head reveal">
+            <p class="eyebrow" data-i18n="faq_eyebrow">Questions</p>
+            <h2 id="faq-heading" data-i18n="faq_title">Common questions</h2>
+            <span class="phase-rule" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+          </div>
+          <div class="faq reveal">
+            <details>
+              <summary data-i18n="q1">What do I need to use Kisan Astra?</summary>
+              <p data-i18n="a1">
+                A three-phase agricultural pump connection, a Kisan Astra smart
+                starter installed on it, and any smartphone with the free app.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="q2">
+                Will it work with my existing motor and starter?
+              </summary>
+              <p data-i18n="a2">
+                Yes. An electrician fits the unit alongside your existing
+                starter — your motor and wiring are not replaced.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="q3">
+                What if the device loses network at the field?
+              </summary>
+              <p data-i18n="a3">
+                The app keeps showing your last known readings and history.
+                Control resumes automatically when the unit reconnects.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="q4">
+                Is the app free? Which languages does it support?
+              </summary>
+              <p data-i18n="a4">
+                The app is free on Android and iPhone, and works fully in
+                English, Telugu and Hindi. You sign in with your mobile number
+                and OTP — no password needed.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="q5">How do I get one installed?</summary>
+              <p data-i18n="a5">
+                Email support@fourninelabs.com — we will arrange supply and
+                installation for your area.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <section id="get" class="section section--cta" aria-labelledby="cta-heading">
+        <div class="section__inner section__inner--narrow reveal">
+          <h2 id="cta-heading" data-i18n="cta_title">
+            Ready to take control of your pump?
+          </h2>
+          <p class="section__lead" data-i18n="cta_body">
+            Write to us — we will help you get a Kisan Astra smart starter
+            installed on your farm.
+          </p>
+          <div class="hero__actions hero__actions--center">
+            <a
+              class="btn btn--primary"
+              href="mailto:support@fourninelabs.com"
+              data-i18n="cta_button"
+              >Contact us</a
+            >
+          </div>
+          <p class="cta__note" data-i18n="cta_download">
+            The Kisan Astra app is free — search “Kisan Astra” on the Play Store
+            or App Store.
           </p>
         </div>
       </section>
@@ -76,9 +432,11 @@
       <div class="site-footer__inner">
         <span>© 2026 Fournine Cloud Solutions Private Limited</span>
         <span class="site-footer__links">
-          <a href="privacy.html">Privacy</a>
-          <a href="support.html">Support</a>
-          <a href="mailto:support@fourninelabs.com">Email us</a>
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy</a>
+          <a href="support.html" data-i18n="footer_support">Support</a>
+          <a href="mailto:support@fourninelabs.com" data-i18n="footer_email"
+            >Email us</a
+          >
         </span>
       </div>
     </footer>
